@@ -1,3 +1,6 @@
 #屏蔽src文件
 src/
 
+#python 缓存文件
+*.py[cod]
+
