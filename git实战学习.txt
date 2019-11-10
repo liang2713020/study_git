@@ -1,4 +1,4 @@
-1、git init\git init demo
+﻿1、git init\git init demo
 
 配置local信息
 缺省等同于local
@@ -98,7 +98,7 @@ git remote add 名称 远程url
 git remote show 远程名称
 git push study_git1 master
 git fetch study_git1
-git push study_git1 远程拉取数据
+git pull study_git1 远程拉取数据
 
 25、git 远程修改
 git remote rename old_name new_name
