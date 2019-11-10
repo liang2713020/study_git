@@ -1,0 +1,108 @@
+1、git init\git init demo
+
+配置local信息
+缺省等同于local
+$git config --local [local 只对仓库有效]
+$git config --global [global 对登录用户所有仓库有效]
+$git config --system [system 对系统的所有用户都有效]
+优先级：local>global>system
+
+1、git add filename [提交单个文件]
+git add . [提交所有文件]
+2、git commit -m "版本记录信息"
+3、git log  [查看提交记录]
+
+9.版本状态查看
+git status
+git stauts -s
+git status --short
+
+10.查看历史版本
+git log
+git log --pretty=oneline只显示一行
+git log -p 显示版本之间的差别
+git log -5 显示最近5个版本
+git log --stat 查看大体的统计信息
+
+11、 .gitignore 忽略文件，匹配到在这个文件中的目标不会添加到版本控制系统里面
+#是注释符
+glob 模式匹配
+* 星号，匹配0或者任意个字符
+[abc]，匹配任何一个在括号内的字符
+[0-9]，0-9的字符
+？ 匹配一个任意字符
+/ 结尾 匹配指定目录
+！取反
+
+12、git diff 版本间的比对
+git diff 是比较新文件还没有添加到缓存之前的差异
+将git add 和 git commit 合并成一个操作
+git commit -a -m '新版本信息'
+
+
+13、
+git diff 版本1的部分哈希值  版本2的部分哈希值
+git diff --staged
+对比已经添加到暂存区的内容差别
+
+
+14、 git rm 删除文件
+git restore --filename 修改完成一个文件以后，还没有添加到暂存空间，即还没有执行git add filename操作
+git rm filename 添加到了暂存空间后的删除,原文也会被删除
+git rm  --cached filename 文件添加到了版本控制系统里后，即执行了git commit filename操作后，进行删除的操作.执行后源文件不变,但是版本控制系统没有该文件记录
+git rm *.pyc 删除所有的.pyc文件
+
+
+15、 git mv 移动文件
+git mv 旧文件 新文件
+等价于 
+1）mv 旧文件 新文件
+2）git rm 旧文件
+3）git add 新文件
+
+16、版本补录
+git commit --amend
+
+17、标签
+git tag -a tagname -m '提交信息'
+git tag tagname 轻量级标签
+git tag -a tagname 
+git tag
+git tag -l 'v1.8'
+
+18、标签2
+git tag 显示所有的标签
+git tag -l 'v1.8' 显示带有v1.8标签
+git tag -a tagname version,补录标签
+git tag -d tagname
+
+19、20、checkout检出  版本切换
+checkout 版本号
+git reflog 当版本Head回滚之后,git log看不大回滚位置之后的内容，可以通过git reflog查看所有的日志信息
+git checkout 标签名
+
+21、git alias 别名
+git config --global alias.st 'status' #相当于给'status'取了一个别名，叫做st git status =git st
+git config --global alias.last 'log-1 HEAD' #相当于git log -1 HEAD =  git last
+git config --global alias.logol log --pretty=oneline  #git log --pretty=oneline = git logol
+
+22、github 账号创建
+远程地址 https
+
+23、git 远程地址
+git remote #查看远程地址
+git remote -v
+git remote add 名称 远程url
+
+24、git 远程操作
+git remote show 远程名称
+git push study_git1 master
+git fetch study_git1
+git push study_git1 远程拉取数据
+
+25、git 远程修改
+git remote rename old_name new_name
+git remote rm name
+
+26、git clone 克隆远程项目
+git clone url
